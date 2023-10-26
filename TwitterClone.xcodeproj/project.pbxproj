@@ -13,6 +13,14 @@
 		E2380A20299D5F8400E703BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2380A1F299D5F8400E703BA /* Assets.xcassets */; };
 		E2380A23299D5F8400E703BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2380A21299D5F8400E703BA /* LaunchScreen.storyboard */; };
 		E2380A32299D61AE00E703BA /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2380A31299D61AE00E703BA /* MainTabController.swift */; };
+		E25FA0762AE96CB10037B522 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25FA0752AE96CB10037B522 /* Extensions.swift */; };
+		E277F1432AEACB47000BAD39 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277F1422AEACB47000BAD39 /* LoginController.swift */; };
+		E277F1452AEACC10000BAD39 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277F1442AEACC10000BAD39 /* RegistrationController.swift */; };
+		E277F1472AEAD769000BAD39 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277F1462AEAD769000BAD39 /* Utilities.swift */; };
+		E2C72F472AAC9DD100F07716 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C72F462AAC9DD100F07716 /* FeedController.swift */; };
+		E2C72F492AAC9E4000F07716 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C72F482AAC9E4000F07716 /* ExploreController.swift */; };
+		E2C72F4B2AAC9E5400F07716 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C72F4A2AAC9E5400F07716 /* NotificationsController.swift */; };
+		E2C72F4D2AAC9E6B00F07716 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C72F4C2AAC9E6B00F07716 /* ConversationsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,14 @@
 		E2380A22299D5F8400E703BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2380A24299D5F8400E703BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2380A31299D61AE00E703BA /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		E25FA0752AE96CB10037B522 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E277F1422AEACB47000BAD39 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		E277F1442AEACC10000BAD39 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		E277F1462AEAD769000BAD39 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E2C72F462AAC9DD100F07716 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		E2C72F482AAC9E4000F07716 /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
+		E2C72F4A2AAC9E5400F07716 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
+		E2C72F4C2AAC9E6B00F07716 /* ConversationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +98,12 @@
 		E2380A2C299D605200E703BA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E277F1412AEACB2A000BAD39 /* Authentication */,
 				E2380A31299D61AE00E703BA /* MainTabController.swift */,
+				E2C72F462AAC9DD100F07716 /* FeedController.swift */,
+				E2C72F482AAC9E4000F07716 /* ExploreController.swift */,
+				E2C72F4A2AAC9E5400F07716 /* NotificationsController.swift */,
+				E2C72F4C2AAC9E6B00F07716 /* ConversationsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -111,8 +132,19 @@
 		E2380A30299D60A300E703BA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E25FA0752AE96CB10037B522 /* Extensions.swift */,
+				E277F1462AEAD769000BAD39 /* Utilities.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E277F1412AEACB2A000BAD39 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				E277F1422AEACB47000BAD39 /* LoginController.swift */,
+				E277F1442AEACC10000BAD39 /* RegistrationController.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +175,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					E2380A12299D5F8300E703BA = {
 						CreatedOnToolsVersion = 14.2;
@@ -186,9 +218,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C72F4B2AAC9E5400F07716 /* NotificationsController.swift in Sources */,
+				E2C72F4D2AAC9E6B00F07716 /* ConversationsController.swift in Sources */,
+				E277F1472AEAD769000BAD39 /* Utilities.swift in Sources */,
 				E2380A17299D5F8300E703BA /* AppDelegate.swift in Sources */,
+				E25FA0762AE96CB10037B522 /* Extensions.swift in Sources */,
+				E2C72F492AAC9E4000F07716 /* ExploreController.swift in Sources */,
 				E2380A19299D5F8300E703BA /* SceneDelegate.swift in Sources */,
 				E2380A32299D61AE00E703BA /* MainTabController.swift in Sources */,
+				E277F1432AEACB47000BAD39 /* LoginController.swift in Sources */,
+				E277F1452AEACC10000BAD39 /* RegistrationController.swift in Sources */,
+				E2C72F472AAC9DD100F07716 /* FeedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +290,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -310,6 +351,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

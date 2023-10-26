@@ -11,15 +11,38 @@ class MainTabController: UITabBarController {
     
     // MARK: - Properties
     
+    let actionButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.backgroundColor = .TwitterBlue
+        button.setImage(UIImage(named: "new_tweet"), for: .normal)
+        button.addTarget(MainTabController.self, action: #selector(actionButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureViewControllers()
+        configureUI()
     }
     
-    //MARK: - Helpers
+    // MARK: - Selectors
+    
+    @objc func actionButtonTapped() {
+        print(123)
+    }
+    
+    
+    // MARK: - Helpers
+    
+    func configureUI() {
+        view.addSubview(actionButton)
+        actionButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, paddingBottom: 64, paddingRight: 16, width: 56, height: 56)
+        actionButton.layer.cornerRadius = 56/2
+    }
     
     func configureViewControllers() {
         
@@ -37,7 +60,7 @@ class MainTabController: UITabBarController {
         let nav4 = templateNavigationController(image: UIImage(named: "ic_mail_outline_white_2x-1"), rootVieweController: conversations)
         
         
-        viewControllers = [nav1,nav2,nav3,nav4]
+        viewControllers = [nav1, nav2, nav3, nav4]
         
     }
     
