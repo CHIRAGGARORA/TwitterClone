@@ -7,10 +7,20 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class MainTabController: UITabBarController {
     
     // MARK: - Properties
+    
+    var user: User? {
+        didSet{
+            guard let nav = viewControllers?[0] as? UINavigationController else { return }
+            guard let feed = nav.viewControllers.first as? FeedController else { return }
+            
+            feed.user = user
+        }
+    }
     
     let actionButton: UIButton = {
         let button = UIButton(type: .system)
@@ -33,6 +43,13 @@ class MainTabController: UITabBarController {
     
     // MARK: - API
     
+    func fetchUser() {
+        UserService.shared.fetchUser { user in
+            self.user = user
+            
+        }
+    }
+    
     func authenticateUserAndCofigureUI() { //NOT logged in
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
@@ -45,6 +62,7 @@ class MainTabController: UITabBarController {
         else { // LOGGED in
             configureViewControllers()
             configureUI()
+            fetchUser()
         }
     }
     
