@@ -28,7 +28,7 @@ class TweetCell: UICollectionViewCell {
         iv.clipsToBounds = true
         iv.setDimensions(width: 48, height: 48)
         iv.layer.cornerRadius = 48/2
-        iv.backgroundColor = .systemPink
+        iv.backgroundColor = .systemGray
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleProfileImageTapped))
         iv.addGestureRecognizer(tap)
@@ -134,7 +134,6 @@ class TweetCell: UICollectionViewCell {
     // MARK: - Selectors
     
     @objc func handleProfileImageTapped() {
-        print("DEBUG: Profile image tapped in cell.....")
         delegate?.handleProfileImageTapped(self)
     }
     
