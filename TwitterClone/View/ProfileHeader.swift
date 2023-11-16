@@ -81,7 +81,7 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 3
-        label.text = "TV Dad, Bodybuilder, Conan, Terminator, and former Governor of California."
+        label.text = "Sample Bio (will write personalized bio for each user)"
         return label
     }()
     

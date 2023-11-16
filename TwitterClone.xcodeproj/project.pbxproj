@@ -16,6 +16,7 @@
 		E253E3DC2AEFB89900AE8B74 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3DB2AEFB89900AE8B74 /* Tweet.swift */; };
 		E253E3DE2AEFD10D00AE8B74 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3DD2AEFD10D00AE8B74 /* TweetCell.swift */; };
 		E253E3FA2AF19E6800AE8B74 /* TweetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3F92AF19E6700AE8B74 /* TweetViewModel.swift */; };
+		E25E74852B05F5FC000C18A5 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25E74842B05F5FC000C18A5 /* UserCell.swift */; };
 		E25FA0762AE96CB10037B522 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25FA0752AE96CB10037B522 /* Extensions.swift */; };
 		E26121212AEBCD290058280B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E26121202AEBCD290058280B /* GoogleService-Info.plist */; };
 		E26121242AEBDD460058280B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E26121232AEBDD460058280B /* FirebaseAnalytics */; };
@@ -80,6 +81,7 @@
 		E253E3DB2AEFB89900AE8B74 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		E253E3DD2AEFD10D00AE8B74 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		E253E3F92AF19E6700AE8B74 /* TweetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewModel.swift; sourceTree = "<group>"; };
+		E25E74842B05F5FC000C18A5 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		E25FA0752AE96CB10037B522 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E26121202AEBCD290058280B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		E26121592AEC19900058280B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				E2DA47972AF4131500214C8F /* ProfileHeader.swift */,
 				E2CEF7672AF9574D006CE8B7 /* ProfileFilterView.swift */,
 				E2CEF7692AF95AE9006CE8B7 /* ProfileFilterCell.swift */,
+				E25E74842B05F5FC000C18A5 /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				E2C72F4D2AAC9E6B00F07716 /* ConversationsController.swift in Sources */,
 				E2CEF76A2AF95AE9006CE8B7 /* ProfileFilterCell.swift in Sources */,
 				E277F1472AEAD769000BAD39 /* Utilities.swift in Sources */,
+				E25E74852B05F5FC000C18A5 /* UserCell.swift in Sources */,
 				E29219602AEE803000B85A7A /* CaptionTextView.swift in Sources */,
 				E2380A17299D5F8300E703BA /* AppDelegate.swift in Sources */,
 				E25FA0762AE96CB10037B522 /* Extensions.swift in Sources */,
