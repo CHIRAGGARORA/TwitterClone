@@ -16,7 +16,7 @@ class ProfileController: UICollectionViewController {
     
     // MARK: - Properties
     
-    private let user: User
+    private var user: User
     
     private var tweets = [Tweet]() {
         didSet {
@@ -39,6 +39,8 @@ class ProfileController: UICollectionViewController {
         super.viewDidLoad()
         configureCollectionView()
         fetchTweets()
+        checkIfuserIsFollowed()
+        fetchUserStats()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +55,22 @@ class ProfileController: UICollectionViewController {
     func fetchTweets() {
         TweetService.shared.fetchTweets(forUser: user) { tweets in
             self.tweets = tweets
+        }
+    }
+    
+    
+    func checkIfuserIsFollowed() {
+        UserService.shared.checkIfuserIsFollowed(uid: user.uid) { isFollowed in
+            self.user.isFollowed = isFollowed
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchUserStats() {
+        UserService.shared.fetchUserStats(uid: user.uid) { stats in
+            self.user.stats = stats
+            self.collectionView.reloadData()
+            self.fetchUserStats()
         }
     }
     
@@ -111,6 +129,29 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 // MARK: - profileHeaderDelegate
 
 extension ProfileController: profileHeaderDelegate {
+    func handleEditProfileFollow(_ header: ProfileHeader) {
+        
+        if user.isCurrentUser {
+            print("DEBUG: Show edit profile button controller...")
+            
+            return
+        }
+                
+        if user.isFollowed {
+            UserService.shared.unfollowUser(uid: user.uid) { (err, ref) in
+                self.user.isFollowed = false
+                self.collectionView.reloadData()
+            }
+        } else {
+            UserService.shared.followUser(uid: user.uid) { (ref, err) in
+                self.user.isFollowed = true
+                self.collectionView.reloadData()
+
+            }
+        }
+        
+    }
+    
     func handleDismissal() {
         navigationController?.popViewController(animated: true)
     }
