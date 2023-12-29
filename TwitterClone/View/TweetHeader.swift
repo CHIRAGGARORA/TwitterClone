@@ -11,6 +11,10 @@ class TweetHeader: UICollectionReusableView {
     
     // MARK: - Properties
     
+    var tweet: Tweet? {
+        didSet { configure() }
+    }
+    
     private lazy var profileImageView: UIImageView = {
         
         let iv = UIImageView()
@@ -67,19 +71,9 @@ class TweetHeader: UICollectionReusableView {
         return button
     }()
     
-    private lazy var retweetsLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "2 Retweets"
-        return label
-    }()
+    private lazy var retweetsLabel = UILabel()
+    private lazy var likesLabel = UILabel()
     
-    private lazy var likesLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.text = "0 Likes"
-        return label
-    }()
     
     private lazy var statsView: UIView = {
         let view = UIView()
@@ -150,14 +144,14 @@ class TweetHeader: UICollectionReusableView {
         captionLabel.anchor(top: stack.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 20, paddingleft: 16, paddingRight: 16)
         
         addSubview(dateLabel)
-        dateLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingTop: 20, paddingleft: 16)
+        dateLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingTop: 10, paddingleft: 16)
         
         addSubview(optionButton)
         optionButton.centerY(inView: stack)
         optionButton.anchor(right: rightAnchor, paddingRight: 8)
         
         addSubview(statsView)
-        statsView.anchor(top: dateLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 20, height: 40)
+        statsView.anchor(top: dateLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 10, height: 40)
         
         let actionStack = UIStackView(arrangedSubviews: [commentButton, retweetButton, likeButton, shareButton])
         actionStack.spacing = 72
@@ -199,6 +193,21 @@ class TweetHeader: UICollectionReusableView {
     }
     
     // MARK: - Helpers
+    
+    
+    func configure() {
+        guard let tweet = tweet else { return }
+        
+        let viewModel = TweetViewModel(tweet: tweet)
+        
+        captionLabel.text = tweet.caption
+        fullNameLabel.text = tweet.user.fullname
+        usernameLabel.text = viewModel.usernameText
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        dateLabel.text = viewModel.headerTimestamp
+        retweetsLabel.attributedText = viewModel.retweetsAttributedString
+        likesLabel.attributedText = viewModel.likesAttributedString
+    }
     
     func createButton(withImageName imageName: String) -> UIButton {
         let button = UIButton(type: .system)
