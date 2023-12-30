@@ -41,11 +41,16 @@ class UploadTweetController: UIViewController {
         iv.setDimensions(width: 48, height: 48)
         iv.layer.cornerRadius = 48/2
         iv.backgroundColor = .systemPink
-        
-        
         return iv
-        
-        
+    }()
+    
+    private lazy var replyLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .lightGray
+        label.text = "Replying to @Walter"
+        label.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        return label
     }()
     
     private let captionTextView = CaptionTextView()
@@ -103,18 +108,32 @@ class UploadTweetController: UIViewController {
         navigationController?.view.backgroundColor = .white
         configureNavigationBar()
         
-        let stack = UIStackView(arrangedSubviews: [profileImageView, captionTextView])
-        stack.axis = .horizontal
+        let imageCaptionStack = UIStackView(arrangedSubviews: [profileImageView, captionTextView])
+        imageCaptionStack.axis = .horizontal
+        imageCaptionStack.spacing = 12
+        imageCaptionStack.alignment = .leading
+        
+        let stack = UIStackView(arrangedSubviews: [replyLabel, imageCaptionStack])
+        stack.axis = .vertical
+//        stack.alignment = .leading
         stack.spacing = 12
-        stack.alignment = .leading
+        
         
         view.addSubview(stack)
         stack.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 16, paddingleft: 16, paddingRight: 16)
         
         profileImageView.sd_setImage(with: user.ProfileImageUrl, completed: nil)
         
+        actionButton.setTitle(viewmodel.actionButtonTitle, for: .normal)
+        captionTextView.placeholderLabel.text = viewmodel.placeholderText
         
+        replyLabel.isHidden = !viewmodel.shouldShowReplyLabel
+        guard let replyText = viewmodel.replyText else {return}
+        replyLabel.text = replyText
+                
     }
+    
+    
     
     func configureNavigationBar() {
         navigationController?.navigationBar.barTintColor = .white
