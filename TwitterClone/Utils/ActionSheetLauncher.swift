@@ -17,6 +17,8 @@ class ActionSheetLauncher: NSObject {
     private let user: User
     private let tableView = UITableView()
     private var window: UIWindow?
+    private lazy var viewModel = ActionSheetViewModel(user: user)
+    //coz of lazy var its only gonna configure this viewModel if this user property has been set line 17
     
     private lazy var blackView: UIView = {
         let view = UIView()
@@ -81,7 +83,7 @@ class ActionSheetLauncher: NSObject {
         blackView.frame = window.frame
         
         window.addSubview(tableView)
-        let height = CGFloat(3 * 60) + 100
+        let height = CGFloat(viewModel.options.count * 60) + 100
         tableView.frame = CGRect(x: 0, y: window.frame.height,
                                  // origin point for iphone is at topleft point 0,0
                                  // when we put origin of y as -300 it comes up by 300 px
@@ -124,11 +126,12 @@ extension ActionSheetLauncher: UITableViewDelegate {
 
 extension ActionSheetLauncher: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.options.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! ActionSheetCell
+        cell.option = viewModel.options[indexPath.row]
         return cell
     }
     
