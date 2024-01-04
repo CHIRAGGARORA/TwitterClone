@@ -7,6 +7,12 @@
 
 import UIKit
 
+protocol NotificationCellDelegate: class {
+    func didTapProfileImage(_ cell: NotificationCell)
+        
+    
+}
+
 class NotificationCell: UITableViewCell {
     
     // MARK: - Properties
@@ -14,6 +20,8 @@ class NotificationCell: UITableViewCell {
     var notification: Notification? {
         didSet { configure() }
     }
+    
+    weak var delegate: NotificationCellDelegate?
     
     private lazy var profileImageView: UIImageView = {
         
@@ -48,7 +56,7 @@ class NotificationCell: UITableViewCell {
         stack.spacing = 8
         stack.alignment = .center
         
-        addSubview(stack)
+        contentView.addSubview(stack)
         stack.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
         stack.anchor(right: rightAnchor, paddingRight: 12)
     }
@@ -61,7 +69,7 @@ class NotificationCell: UITableViewCell {
     // MARK: - Selectors
     
     @objc func handleProfileImageTapped() {
-        
+        delegate?.didTapProfileImage(self)
         
     }
     

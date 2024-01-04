@@ -30,7 +30,7 @@ struct NotificationViewModel {
         case .follow:
             return " started Following you"
         case .like:
-            return " liked your tweets"
+            return " liked your tweet"
         case .reply:
             return " replied to your tweet"
         case .retweet:
