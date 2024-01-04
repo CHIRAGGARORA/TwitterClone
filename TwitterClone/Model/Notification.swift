@@ -10,11 +10,11 @@ import Foundation
 
 enum NotificationType: Int {
 
-    case follow
-    case reply
-    case like
-    case retweet
-    case mention
+    case follow // rawValue return 0
+    case like // rawValue return 1
+    case reply // rawValue return 2
+    case retweet // rawValue return 3
+    case mention // rawValue return 4
 }
 
 
