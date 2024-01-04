@@ -62,6 +62,7 @@
 		E277F1452AEACC10000BAD39 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277F1442AEACC10000BAD39 /* RegistrationController.swift */; };
 		E277F1472AEAD769000BAD39 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E277F1462AEAD769000BAD39 /* Utilities.swift */; };
 		E27EB63E2B4733C000D9E061 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27EB63D2B4733C000D9E061 /* NotificationCell.swift */; };
+		E27EB6402B473F3B00D9E061 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27EB63F2B473F3B00D9E061 /* NotificationViewModel.swift */; };
 		E28BF43A2B46799E0074C03F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BF4392B46799E0074C03F /* Notification.swift */; };
 		E28BF43C2B467CDA0074C03F /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28BF43B2B467CDA0074C03F /* NotificationService.swift */; };
 		E292195E2AEE417400B85A7A /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E292195D2AEE417400B85A7A /* UploadTweetController.swift */; };
@@ -107,6 +108,7 @@
 		E277F1442AEACC10000BAD39 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		E277F1462AEAD769000BAD39 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E27EB63D2B4733C000D9E061 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		E27EB63F2B473F3B00D9E061 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		E28BF4392B46799E0074C03F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		E28BF43B2B467CDA0074C03F /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		E292195D2AEE417400B85A7A /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				E2CEF76B2AFAC509006CE8B7 /* ProfileHeaderViewModel.swift */,
 				E241B2E82B4056F4008BF2DE /* UploadTweetViewModel.swift */,
 				E26C97BB2B4315B8005E68BB /* ActionSheetViewModel.swift */,
+				E27EB63F2B473F3B00D9E061 /* NotificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				E29219602AEE803000B85A7A /* CaptionTextView.swift in Sources */,
 				E26C97B82B42D4B1005E68BB /* ActionSheetCell.swift in Sources */,
 				E2380A17299D5F8300E703BA /* AppDelegate.swift in Sources */,
+				E27EB6402B473F3B00D9E061 /* NotificationViewModel.swift in Sources */,
 				E25FA0762AE96CB10037B522 /* Extensions.swift in Sources */,
 				E22092C72B3DF488004E3C69 /* TweetController.swift in Sources */,
 				E27305702AF2CDF100FAF263 /* ProfileController.swift in Sources */,
