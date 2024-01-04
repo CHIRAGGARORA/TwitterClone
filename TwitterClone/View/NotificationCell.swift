@@ -9,6 +9,7 @@ import UIKit
 
 protocol NotificationCellDelegate: class {
     func didTapProfileImage(_ cell: NotificationCell)
+    func didTapFollow(_ cell: NotificationCell)
         
     
 }
@@ -39,6 +40,18 @@ class NotificationCell: UITableViewCell {
         return iv
     }()
     
+    private lazy var followButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Loading", for: .normal)
+        button.setTitleColor(.TwitterBlue, for: .normal)
+        button.backgroundColor = .white
+        button.layer.borderColor = UIColor.TwitterBlue.cgColor
+        button.layer.borderWidth = 2
+        button.addTarget(self, action: #selector(handleFollowtapped), for: .touchUpInside)
+        return button
+        
+    }()
+    
     let notificationLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
@@ -59,6 +72,12 @@ class NotificationCell: UITableViewCell {
         contentView.addSubview(stack)
         stack.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
         stack.anchor(right: rightAnchor, paddingRight: 12)
+        
+        addSubview(followButton)
+        followButton.centerY(inView: self)
+        followButton.setDimensions(width: 92, height: 32)
+        followButton.layer.cornerRadius = 32/2
+        followButton.anchor(right: rightAnchor, paddingRight: 12)
     }
     
     required init?(coder: NSCoder) {
@@ -73,6 +92,10 @@ class NotificationCell: UITableViewCell {
         
     }
     
+    @objc func handleFollowtapped() {
+        delegate?.didTapFollow(self)
+    }
+    
     // MARK: - Helpers
     
     
@@ -83,5 +106,8 @@ class NotificationCell: UITableViewCell {
         
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
         notificationLabel.attributedText = viewModel.notficationtext
+        
+        followButton.isHidden = viewModel.shouldHideFollowButton
+        followButton.setTitle(viewModel.followButtonText, for: .normal)
     }
 }
