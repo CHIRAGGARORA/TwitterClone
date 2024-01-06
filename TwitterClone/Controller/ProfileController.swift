@@ -145,6 +145,10 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 // MARK: - profileHeaderDelegate
 
 extension ProfileController: profileHeaderDelegate {
+    func didSelect(filter: ProfileFilterOptions) {
+        self.selectedFilter = filter
+    }
+    
     func handleEditProfileFollow(_ header: ProfileHeader) {
         
         if user.isCurrentUser {
