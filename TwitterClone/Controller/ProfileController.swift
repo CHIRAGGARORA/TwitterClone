@@ -54,6 +54,7 @@ class ProfileController: UICollectionViewController {
         super.viewDidLoad()
         configureCollectionView()
         fetchTweets()
+        fetchLikedTweets()
         checkIfuserIsFollowed()
         fetchUserStats()
     }
@@ -74,6 +75,12 @@ class ProfileController: UICollectionViewController {
         }
     }
     
+    func fetchLikedTweets() {
+        TweetService.shared.fetchLikes(forUser: user) { tweets in
+            self.likedTweets = tweets
+            // Here no CollectionView.reloadData() because here we are just fetching in other viewsd they were initially displayed so reloadData was required
+        }
+    }
     
     func checkIfuserIsFollowed() {
         UserService.shared.checkIfuserIsFollowed(uid: user.uid) { isFollowed in
@@ -98,6 +105,9 @@ class ProfileController: UICollectionViewController {
         
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: resuseIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        
+        guard let tabHeight = tabBarController?.tabBar.frame.height else { return }
+        collectionView.contentInset.bottom = tabHeight
     
     }
     
@@ -138,7 +148,11 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 120)
+        
+        let viewModel = TweetViewModel(tweet: tweets[indexPath.row])
+        let height = viewModel.size( forWidth: view.frame.width).height
+        
+        return CGSize(width: view.frame.width, height: height + 72)
     }
 }
 
