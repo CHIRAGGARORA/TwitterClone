@@ -101,10 +101,6 @@ class ProfileController: UICollectionViewController {
     func fetchReplies() {
         TweetService.shared.fetchReplies(forUser: user) { tweets in
             self.replies = tweets
-            
-            self.replies.forEach { reply in
-                print("DEBUG: Replying to \(reply.replyingTo)")
-            }
         }
     }
     
@@ -161,9 +157,13 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let viewModel = TweetViewModel(tweet: currentdataSource[indexPath.row])
-        let height = viewModel.size( forWidth: view.frame.width).height
+        var height = viewModel.size( forWidth: view.frame.width).height + 72
         
-        return CGSize(width: view.frame.width, height: height + 72)
+        if currentdataSource[indexPath.row].isReply {
+            height += 20
+        }
+        
+        return CGSize(width: view.frame.width, height: height)
     }
 }
 
